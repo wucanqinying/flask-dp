@@ -1,7 +1,9 @@
 import pandas as pd
-from collections import Counter
+import matplotlib.pyplot as plt
+import numpy as np
 import jieba
 import re
+from pathlib import Path
 
 # 定义二维性格变量
 personality_dimensions = {

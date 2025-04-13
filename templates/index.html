@@ -1,30 +1,133 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <title>用户补充对象页面</title>
-
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>提问！</title>
+    <style>
+        body {
+            background-color: #f0f2f5;
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background-color: #ffffff;
+            width: 90%;
+            max-width: 600px;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        h2 {
+            color: #2c3e50;
+            margin-bottom: 25px;
+            font-size: 24px;
+        }
+        /* 主要元素：提交问题 */
+        .primary-form {
+            margin-bottom: 30px;
+        }
+        .primary-form input[type="text"] {
+            width: 100%;
+            padding: 14px;
+            border: 2px solid #3498db;
+            border-radius: 8px;
+            font-size: 18px;
+            box-sizing: border-box;
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+        .primary-form input[type="text"]:focus {
+            border-color: #2980b9;
+            box-shadow: 0 0 8px rgba(52, 152, 219, 0.3);
+            outline: none;
+        }
+        .primary-form .btn-primary {
+            width: 100%;
+            padding: 14px;
+            background-color: #3498db;
+            color: #ffffff;
+            border: none;
+            border-radius: 8px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-top: 10px;
+        }
+        .primary-form .btn-primary:hover {
+            background-color: #2980b9;
+        }
+        /* 次要元素：补充数据 */
+        .secondary-form {
+            margin-bottom: 20px;
+        }
+        .secondary-form .btn-secondary {
+            width: 80%;
+            padding: 12px;
+            background-color: #7f8c8d;
+            color: #ffffff;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .secondary-form .btn-secondary:hover {
+            background-color: #6c7778;
+        }
+        /* 最小元素：初始化 */
+        .tertiary-form .btn-tertiary {
+            width: 60%;
+            padding: 10px;
+            background-color: #bdc3c7;
+            color: #2c3e50;
+            border: none;
+            border-radius: 6px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .tertiary-form .btn-tertiary:hover {
+            background-color: #a6abad;
+        }
+        @media (max-width: 600px) {
+            .container {
+                width: 95%;
+                padding: 20px;
+            }
+            .primary-form input[type="text"],
+            .primary-form .btn-primary {
+                font-size: 16px;
+            }
+            .secondary-form .btn-secondary {
+                font-size: 14px;
+            }
+            .tertiary-form .btn-tertiary {
+                font-size: 12px;
+            }
+        }
+    </style>
 </head>
 <body>
-
-<form method="post" action="/install">
-    <input type="submit" value="点我进行初始化！">
-
-</form>
-
-<form method="post" action="/paqu">
-    <input type="submit" value="点击进行自定义补充数据！">
-
-</form>
-
-<form method="post" action="/answer">
-    <input type="text" name="question">
-    <input type="submit" value="提交问题">
-
-</form>
-
-
-
+    <div class="container">
+        <h2>说出你的问题</h2>
+        <!-- 主要：提交问题 -->
+        <form method="post" action="/answer" class="primary-form">
+            <input type="text" name="question" placeholder="请输入您的问题" required>
+            <input type="submit" class="btn-primary" value="提交问题">
+        </form>
+        <!-- 次要：自定义补充数据 -->
+        <form method="post" action="/paqu" class="secondary-form">
+            <input type="submit" class="btn-secondary" value="点击进行自定义补充数据！">
+        </form>
+        <!-- 最后：初始化 -->
+        <form method="post" action="/install" class="tertiary-form">
+            <input type="submit" class="btn-tertiary" value="点我进行初始化！">
+        </form>
+    </div>
 </body>
 </html>
