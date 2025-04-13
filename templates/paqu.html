@@ -1,22 +1,103 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>爬取数据</title>
+    <style>
+        body {
+            background-color: #f0f2f5;
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background-color: #ffffff;
+            max-width: 500px;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 25px;
+            font-size: 24px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            font-weight: bold;
+            color: #34495e;
+            margin-bottom: 8px;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #dcdcdc;
+            border-radius: 6px;
+            font-size: 16px;
+            box-sizing: border-box;
+            transition: border-color 0.3s;
+        }
+        input[type="text"]:focus {
+            border-color: #3498db;
+            outline: none;
+        }
+        input[type="checkbox"] {
+            margin-right: 8px;
+            vertical-align: middle;
+        }
+        .checkbox-label {
+            color: #34495e;
+            vertical-align: middle;
+        }
+        hr {
+            border: none;
+            border-top: 1px solid #e0e0e0;
+            margin: 20px 0;
+        }
+        .btn {
+            width: 100%;
+            padding: 12px;
+            background-color: #3498db;
+            color: #ffffff;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .btn:hover {
+            background-color: #2980b9;
+        }
+    </style>
 </head>
 <body>
-
-<form method="post" action="/caiji">
-  目标用户的url：<input type="text" name="url" /><br>
-    需要翻动的次数：<input type="text" name="times"/><br>
-    <hr>
-    进行隐藏爬虫浏览器(不推荐，易出错)<input type="checkbox" name="flag1" value='1'><br>
-
-    <hr>
-    <input type="submit" value="点我提交" />
-
-</form>
-
-
+    <div class="container">
+        <h2>爬取数据</h2>
+        <form method="post" action="/caiji">
+            <div class="form-group">
+                <label for="url">目标用户的 URL</label>
+                <input type="text" id="url" name="url" placeholder="请输入 URL" >
+            </div>
+            <div class="form-group">
+                <label for="times">需要翻动的次数</label>
+                <input type="text" id="times" name="times" placeholder="请输入次数" >
+            </div>
+            <hr>
+            <div class="form-group">
+                <input type="checkbox" id="flag1" name="flag1" value="1">
+                <label for="flag1" class="checkbox-label">进行隐藏爬虫浏览器（不推荐，易出错）</label>
+            </div>
+            <hr>
+            <input type="submit" class="btn" value="点我提交">
+        </form>
+    </div>
 </body>
 </html>

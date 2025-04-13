@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>推荐结果</title>
+    <style>
+        body {
+            background-color: #f0f2f5;
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container {
+            background-color: #ffffff;
+            width: 90%;
+            max-width: 800px;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        h1 {
+            color: #2c3e50;
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+        .question-box {
+            background-color: #e8f4f8;
+            border: 1px solid #b3d4e0;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 20px;
+            font-size: 16px;
+            color: #2c3e50;
+            text-align: left;
+        }
+        .result-box {
+            background-color: #f9f9f9;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 20px;
+            font-size: 16px;
+            line-height: 1.6;
+            color: #34495e;
+            text-align: left;
+            max-height: 500px;
+            overflow-y: auto;
+        }
+        .question-box p, .result-box p {
+            margin: 0;
+        }
+        .label {
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+        .back-btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #3498db;
+            color: #ffffff;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+        .back-btn:hover {
+            background-color: #2980b9;
+        }
+        @media (max-width: 600px) {
+            .container {
+                width: 95%;
+                padding: 20px;
+            }
+            h1 {
+                font-size: 24px;
+            }
+            .question-box, .result-box {
+                font-size: 14px;
+                padding: 15px;
+            }
+            .label {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>推荐结果</h1>
+        <div class="question-box">
+            <div class="label">你提出的问题是：</div>
+            <p>{{ question }}</p>
+        </div>
+        <div class="result-box">
+            <div class="label">推荐的结果是：</div>
+            <p>{{ answer }}</p>
+        </div>
+        <a href="/" class="back-btn">返回主页</a>
+    </div>
+</body>
+</html>
